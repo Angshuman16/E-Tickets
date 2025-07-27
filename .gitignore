@@ -1,0 +1,19 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.user
+*.suo
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore user secrets
+*.secret.json
+
+# Ignore system files
+.DS_Store
+Thumbs.db
