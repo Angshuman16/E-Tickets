@@ -26,33 +26,27 @@ namespace eTickets.Data
                         new Cinema()
                         {
                             Name = "Cinema 1",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
+                            Logo = "/Images/cinema_1.jpg",
                             Description = "This is the description of the first cinema"
                         },
                         new Cinema()
                         {
                             Name = "Cinema 2",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
+                            Logo = "/Images/cinema_2.png",
                             Description = "This is the description of the first cinema"
                         },
                         new Cinema()
                         {
                             Name = "Cinema 3",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
+                            Logo = "/Images/cinema_3.jpg",
                             Description = "This is the description of the first cinema"
                         },
                         new Cinema()
                         {
                             Name = "Cinema 4",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
+                            Logo = "/Images/cinema_4.jpg",
                             Description = "This is the description of the first cinema"
-                        },
-                        new Cinema()
-                        {
-                            Name = "Cinema 5",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
-                            Description = "This is the description of the first cinema"
-                        },
+                        }
                     });
                     context.SaveChanges();
 
