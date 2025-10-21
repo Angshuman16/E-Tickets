@@ -1,5 +1,6 @@
 ﻿using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
@@ -43,12 +44,15 @@ namespace eTickets.Data.Services
             return result;
         }
 
-        public Actor GetById(int id)
+        public async Task<Actor> GetByIdAsync(int id)
         {
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.Id == id);  // It Returns an Actor object that matches the Id provided, This is using a lambda function to clarify if it matches with the given id or not
+                                                                                      // 
+            return result;
 
           
 
-            throw new NotImplementedException();
+         
         }
 
         public Actor Update(int id, Actor actor)

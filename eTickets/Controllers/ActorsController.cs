@@ -23,7 +23,7 @@ namespace eTickets.Controllers
 
             var data = await _service.GetAllActors();
 
-            return View(data); 
+            return View(data);
         }
 
 
@@ -48,15 +48,16 @@ namespace eTickets.Controllers
 
         }
 
-
+        // For getting the details of the actor by ID , Maybe for implementing search feature 
         public async Task<IActionResult> Details(int id)
         {
-            var actorDetails =  _service.GetById(id);
+            var actorDetails = await _service.GetByIdAsync(id);
 
-            if(actorDetails == null) {
+            if (actorDetails == null)
+            {
                 return View("Empty");
 
-        }
+            }
 
             return View(actorDetails);
 
@@ -65,5 +66,6 @@ namespace eTickets.Controllers
 
 
 
+        }
     }
 }
