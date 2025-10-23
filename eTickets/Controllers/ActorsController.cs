@@ -3,6 +3,7 @@ using eTickets.Data.Services;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace eTickets.Controllers
 {
@@ -65,6 +66,76 @@ namespace eTickets.Controllers
 
 
 
+
+        }
+
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+
+
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null)
+            {
+                return View("Empty");
+            }
+            else return View(actorDetails);
+
+
+
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePicUrl,FullName,Bio")] Actor act)  // Through this Bind We bind only the properties that we are gonna send from the Post Request.
+        {
+            if (!ModelState.IsValid)
+            {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
+
+            await _service.UpdateAsync(id, act);
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+
+        // Deleting a Record :
+
+        public async Task<IActionResult> Delete(int id)
+        {
+
+
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null)
+            {
+                return View("Empty");
+            }
+            else return View(actorDetails);
+
+
+
+        }
+
+
+
+        [HttpPost,ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)  // Through this Bind We bind only the properties that we are gonna send from the Post Request.
+        {   var actorDetails = await _service.GetByIdAsync(id);
+
+
+            if (actorDetails == null) return View("Empty");
+
+
+            await _service.DeleteAsync(id);
+
+            return RedirectToAction(nameof(Index));
 
         }
     }
