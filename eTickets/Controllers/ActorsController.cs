@@ -39,10 +39,10 @@ namespace eTickets.Controllers
         [HttpPost]
         public IActionResult Create([Bind("ProfilePicUrl,FullName,Bio")] Actor act)  // Through this Bind We bind only the properties that we are gonna send from the Post Request.
         {
-            if (!ModelState.IsValid)
-            {
-                return View(act);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(act);
+            //}
 
             _service.Add(act);
             return RedirectToAction(nameof(Index));
