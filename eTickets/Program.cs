@@ -18,6 +18,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IActorService, ActorsService>();
 
+builder.Services.AddScoped<IProducerService, ProducerService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
