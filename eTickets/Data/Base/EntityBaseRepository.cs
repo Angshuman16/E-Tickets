@@ -21,18 +21,13 @@ namespace eTickets.Data.Base
         }
 
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(T entity)   
         {
 
 
             await _context.Set<T>().AddAsync(entity);
             _context.SaveChanges();
 
-
-
-
-
-           
         }
 
         public async Task DeleteAsync(int id)
