@@ -1,8 +1,8 @@
-﻿@model Producer
+﻿@model Cinema
 
 
 @{
-    ViewData["Title"] = "Update a Producer";
+    ViewData["Title"] = "Add a new Cinema";
 }
 
 
@@ -10,14 +10,14 @@
 
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Update a Producer</h1>
+            <h1>Add a New Cinema</h1>
         </p>
 
         <div class="row">
 
 
             <div class="col-md-8 offset-2">
-               <form asp-action="Edit">
+               <form asp-action="Create">
                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
@@ -26,30 +26,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="profilepicUrl" class="control-label"></label>
-                        <input asp-for="profilepicUrl" class="form-control" />
-                        <span asp-validation-for="profilepicUrl" class="text-danger"></span>
+                        <label asp-for="Logo" class="control-label"></label>
+                        <input asp-for="Logo" class="form-control" />
+                        <span asp-validation-for="Logo" class="text-danger"></span>
 
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="fullName" class="control-label"></label>
-                        <input asp-for="fullName" class="form-control" />
-                        <span asp-validation-for="fullName" class="text-danger"></span>
-
-                    </div>
-
-
-                    <div class="form-group">
-                        <label asp-for="Bio" class="control-label"></label>
-                        <input asp-for="Bio" class="form-control" />
-                        <span asp-validation-for="Bio" class="text-danger"></span>
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
 
                     </div>
 
 
                     <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
 
                     </div>
@@ -69,7 +69,7 @@
     <script>
 
         $(document).ready(function () {
-             $("#profilepicUrl").on("input", function () {
+             $("#Logo").on("input", function () {
                  var output = document.getElementById('ProfilePicturePreview');
                  var url = $(this).val().trim();
 

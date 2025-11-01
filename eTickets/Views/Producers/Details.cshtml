@@ -70,11 +70,11 @@
 
         $(document).ready(function() {
             var output = document.getElementById('ProfilePicturePreview');
-            output.src = $('#ProfilePicUrl').val(); 
+            output.src = $('#profilepicUrl').val();
         })
 
         $(document).ready(function () {
-             $("#ProfilePicUrl").on("input", function () {
+             $("#profilepicUrl").on("input", function () {
                  var output = document.getElementById('ProfilePicturePreview');
                  var url = $(this).val().trim();
 
