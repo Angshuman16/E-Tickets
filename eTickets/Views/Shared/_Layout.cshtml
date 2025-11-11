@@ -110,12 +110,19 @@
                     </ul>
 
                     <!-- SearchBar -->
-                    <form class="search-form" asp-controller="Movies" asp-action="Filter">
-                        <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Search">
+                    <form class="search-form" method="get"
+                          asp-controller="@(ViewContext.RouteData.Values["controller"] as string)"
+                          asp-action="Index">
+                        <input name="searchString" type="text" class="form-control"
+                               value="@Context.Request.Query["searchString"]"
+                               placeholder="Search..." aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">
                             <i class="bi bi-search"></i> Search
                         </button>
                     </form>
+
+                    
+
                 </div>
             </div>
         </nav>

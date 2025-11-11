@@ -19,10 +19,16 @@ namespace eTickets.Controllers
 
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
 
             var data = await _service.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                data = data.Where(a => a.FullName.ToLower().Contains(searchString.ToLower())).ToList();
+
+            }
 
             return View(data);
         }

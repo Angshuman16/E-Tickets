@@ -1,4 +1,5 @@
 ﻿using eTickets.Models;
+using System.Linq.Expressions;
 
 namespace eTickets.Data.Base
 {
@@ -6,6 +7,8 @@ namespace eTickets.Data.Base
     {
 
         Task<IEnumerable<T>> GetAllAsync();
+
+        Task<IEnumerable<T>> GetAllAsyncWithIncludes(params Expression<Func<T, object>>[] includeProperties);
 
 
         Task<T> GetByIdAsync(int id);

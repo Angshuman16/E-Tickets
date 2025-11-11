@@ -24,6 +24,9 @@ builder.Services.AddScoped<IProducerService, ProducerService>();
 builder.Services.AddScoped<ICinemaService, CinemaService>();
 
 
+builder.Services.AddScoped<IMoviesService, MoviesService>();
+
+
 
 
 var app = builder.Build();
