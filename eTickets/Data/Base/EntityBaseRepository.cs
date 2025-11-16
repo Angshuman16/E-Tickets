@@ -50,17 +50,24 @@ namespace eTickets.Data.Base
 
         public async Task<IEnumerable<T>> GetAllAsyncWithIncludes(params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> query = _context.Set<T>().AsQueryable();
+            IQueryable<T> query = _context.Set<T>();
 
-            if (includeProperties != null)
-            {
-                foreach (var includeProperty in includeProperties)
-                {
-                    query = query.Include(includeProperty);
-                }
-            }
+
+            query = includeProperties.Aggregate(query, (current, includeProperties) => current.Include(includeProperties));
+
 
             return await query.ToListAsync();
+
+
+            //if (includeProperties != null)
+            //{
+            //    foreach (var includeProperty in includeProperties)
+            //    {
+            //        query = query.Include(includeProperty);
+            //    }
+            //}
+
+            //return await query.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
